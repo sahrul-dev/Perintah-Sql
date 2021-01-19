@@ -38,48 +38,48 @@ menggunakan CMD atau SQLyog
 ========================================================================
 ==>DDl (Data Definition Lenguage)
 ========================================================================
-CREATE DATABASE db_uks; //membuat database db_uks
+`CREATE DATABASE db_uks; //membuat database db_uks`
 
-SHOW DATABASES; //untuk menampilkan semua database
+`SHOW DATABASES; //untuk menampilkan semua database`
 
-USE db_uks; //untuk menggunakan database yang di pilih
+`USE db_uks;` //untuk menggunakan database yang di pilih
 
-CREATE TABLE tb_pasien (nik INT NOT NULL,
+`CREATE TABLE tb_pasien (nik INT NOT NULL,
 	nama VARCHAR(100) NOT NULL,
-	tgl_masuk DATE); //membuat tabel tb_pasien
+	tgl_masuk DATE); //membuat tabel tb_pasien`
 
-SHOW TABLES; //untuk menampilkan semua table di dalam database yang di pilih
+`SHOW TABLES;` //untuk menampilkan semua table di dalam database yang di pilih
 
-ALTER TABLE tb_pasien CHANGE nik id INT AUTO_INCREMENT; //untuk mengubah nama, type, dan lainnya di field yang di pilih
+`ALTER TABLE tb_pasien CHANGE nik id INT AUTO_INCREMENT;` //untuk mengubah nama, type, dan lainnya di field yang di pilih
 
-ALTER TABLE tb_pasien DROP tgl_masuk; //untuk menghapus field dari tabel
+`ALTER TABLE tb_pasien DROP tgl_masuk;` //untuk menghapus field dari tabel
 
-ALTER TABLE tb_pasien ADD tgl_masuk DATE; //untuk menambah field  pada tabel
+`ALTER TABLE tb_pasien ADD tgl_masuk DATE;` //untuk menambah field  pada tabel
 
-DESC tb_pasien; //untuk menampilkan bagian lebih detail dari table yang di pilih
+`DESC tb_pasien;` //untuk menampilkan bagian lebih detail dari table yang di pilih
 ========================================================================
 ==>yang (biasa) di isi setelah type data saat pembuatan tabel
 ========================================================================
-NOT NULL //data wajib di isi dan tidak boleh kosong
-PRIMARY KEY //kunci utama di tabel
-FOREIGN KEY //kunci asing pada tabel yang di gunakan untuk menciptakan hubungan (relasi)
-AUTO_INCREMENT //pembuatan angka unik yang di buat secara otomatis
+`NOT NULL` //data wajib di isi dan tidak boleh kosong
+`PRIMARY KEY` //kunci utama di tabel
+`FOREIGN KEY` //kunci asing pada tabel yang di gunakan untuk menciptakan hubungan (relasi)
+`AUTO_INCREMENT` //pembuatan angka unik yang di buat secara otomatis
 ========================================================================
 ==>DML (Data Manipulation Lenguage)
 ========================================================================
-INSERT INTO  tb_pasien VALUES ('','lois','2019/09/26'); //untuk memasukkan data ke dalam table yang di pilih
+`INSERT INTO  tb_pasien VALUES ('','lois','2019/09/26');` //untuk memasukkan data ke dalam table yang di pilih
 
-SELECT * FROM tb_pasien; //menampilkan semua data dari table yang di pilih
+`SELECT * FROM tb_pasien;` //menampilkan semua data dari table yang di pilih
 
-UPDATE tb_pasien SET tgl_masuk='2019\03\13' where id=1; //untuk mengubah data tgl masuk dengan id yang di tentukan
+`UPDATE tb_pasien SET tgl_masuk='2019\03\13' where id=1;` //untuk mengubah data tgl masuk dengan id yang di tentukan
 
-DELETE FROM tb_pasien WHERE id=1; //menghapus data dimana id yang bernama 1
+`DELETE FROM tb_pasien WHERE id=1;` //menghapus data dimana id yang bernama 1
 ========================================================================
 ==>WHERE
 ========================================================================
-SELECT nama,tgl_masuk //memilih field
-FROM tb_pasien  //nama tabel
-WHERE nama LIKE 'a%' //mencari nama
+`SELECT nama,tgl_masuk` //memilih field
+`FROM tb_pasien` //nama tabel
+`WHERE nama LIKE 'a%'` //mencari nama
 ORDER BY tgl_masuk //mengurutkan dari yang paling kecil
 ;
 ========================================================================
@@ -179,11 +179,11 @@ FROM tb_pasieen,tb_orang_tua,tb_pembina,tb_pmr,tb_uks
 WHERE tb_pasieen.`id`=tb_orang_tua.`id` AND tb_orang_tua.`peg_id`=tb_pembina.`peg_id` AND tb_pasieen.`nisn`=tb_pmr.`nisn` AND tb_pasieen.`k_uks`=tb_uks.`k_uks`
 ORDER BY tb_pasieen.`id`
 
-SELECT tb_pasieen.`nip`,tb_pasieen.`nama`,tb_pasieen.`email`,tb_pasieen.`alamat`,DATE_FORMAT(tb_pasieen.`tgl_masuk`,'%d %M %Y') AS tanggal,
+`SELECT tb_pasieen.`nip`,tb_pasieen.`nama`,tb_pasieen.`email`,tb_pasieen.`alamat`,DATE_FORMAT(tb_pasieen.`tgl_masuk`,'%d %M %Y') AS tanggal,
 tb_orang_tua.`nama` AS nama_ortu,LEFT(tb_orang_tua.`no_hp`,12) AS no_ortu,tb_pembina.`nama` AS pembina,tb_pmr.`nama`AS perawat,tb_uks.`nama` AS UKS,tb_sekolah.`nama_sekolah` AS sekolah
 FROM tb_pasieen,tb_orang_tua,tb_pembina,tb_pmr,tb_uks,tb_sekolah
 WHERE tb_pasieen.`id`=tb_orang_tua.`id` AND tb_orang_tua.`peg_id`=tb_pembina.`peg_id` AND tb_pasieen.`nisn`=tb_pmr.`nisn` AND tb_pasieen.`k_uks`=tb_uks.`k_uks` AND tb_uks.`npsn`=tb_sekolah.`npsn`
-ORDER BY tb_pasieen.`id`
+ORDER BY tb_pasieen.`id``
 
 ========================================================================
 ==>penjelasan
